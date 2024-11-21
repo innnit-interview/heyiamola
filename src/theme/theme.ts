@@ -1,4 +1,5 @@
 import { Theme } from "@emotion/react";
+import { MIN_DESKTOP_WIDTH, MIN_TABLET_WIDTH } from "../utils/consts";
 
 const THEME: Theme = {
   colors: {
@@ -19,6 +20,11 @@ const THEME: Theme = {
   fontWeights: {
     bold: 500,
     regular: 400,
+  },
+  mediaQueries: {
+    desktop: `@media (min-width: ${MIN_DESKTOP_WIDTH}px)`,
+    mobile: `@media (max-width: ${MIN_TABLET_WIDTH - 1}px)`,
+    tablet: `@media (min-width: ${MIN_TABLET_WIDTH}px)`,
   },
 };
 

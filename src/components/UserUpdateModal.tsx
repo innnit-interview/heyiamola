@@ -1,6 +1,35 @@
 import { useState } from "react";
 import { UserUpdateForm } from "../utils/types";
 import Title from "./Title";
+import Subtitle from "./Subtitle";
+import Button from "./Button";
+import FormSection from "./FormSection";
+import ButtonContainer from "./ButtonContainer";
+import styled from "@emotion/styled";
+import THEME from "../theme/theme";
+
+const ModalContainer = styled.div(({ theme }) => ({
+  padding: "20px",
+  width: "100vw",
+  height: "100vh",
+  display: "flex",
+  flexDirection: "column",
+  juutifyContent: "flex-start",
+  gap: "26px",
+  [theme.mediaQueries.desktop]: {
+    width: "670px",
+    height: "auto",
+    position: "fixed",
+    top: "50%",
+    left: "50%",
+    transform: "translate(-50%, -50%)",
+    backgroundColor: theme.colors.white,
+    padding: "26px",
+    boxShadow: "0 4px 8px rgba(0, 0, 0, 0.2)",
+    zIndex: 1,
+    borderRadius: "16px",
+  },
+}));
 
 type Props = {
   userName: string;
@@ -62,11 +91,11 @@ const UserUpdateModal: React.FC<Props> = ({ userName }) => {
   };
 
   return (
-    <div>
+    <ModalContainer theme={THEME}>
       <Title text="Neues Update erstellen" color="violet" />
       <form onSubmit={handleSubmit}>
-        <div>
-          <p>Titel</p>
+        <FormSection>
+          <Subtitle text="Titel" color="orange" />
           <input
             id="updateTitle"
             name="updateTitle"
@@ -76,61 +105,77 @@ const UserUpdateModal: React.FC<Props> = ({ userName }) => {
             maxLength={100}
             aria-label="Titel"
           />
-          <p>{formData.updateTitle.length}/100 Zeichen</p>
-          {errors.updateTitle && (
-            <p style={{ color: "red" }}>{errors.updateTitle}</p>
-          )}
-        </div>
-        <div>
-          <p>Deine Neuigkeiten</p>
-          <textarea
-            id="updateContent"
-            name="updateContent"
-            type="textarea"
-            value={formData.updateContent}
-            onChange={handleFormDataChange}
-            aria-label="Deine Neuigkeiten"
-          />
-          {errors.updateContent && (
-            <p style={{ color: "red" }}>{errors.updateContent}</p>
-          )}
-        </div>
-        <div>
-          <p>Absender</p>
-          <label htmlFor="isToggleChecked">Absender ändern</label>
-          <input
-            id="isToggleChecked"
-            type="checkbox"
-            checked={isToggleChecked}
-            onChange={handleToggleChange}
-          />
-          <p>
-            Hier hast du die Option, das Update unter einem anderen Namen zu
-            veröffentlichen.
-          </p>
-          <label htmlFor="author">Absender</label>
-          <input
-            id="author"
-            name="author"
-            type="text"
-            value={formData.author}
-            onChange={handleFormDataChange}
-            disabled={!isToggleChecked}
-          />
-          {errors.author && <p style={{ color: "red" }}>{errors.author}</p>}
-        </div>
-        <div>
-          <button>Abbrechen</button>
-          <button type="Submit">Entwurf speichern</button>
-          <button>Update veröffentlichen</button>
-        </div>
+          <div>
+            {errors.updateTitle && (
+              <p style={{ color: "red" }}>{errors.updateTitle}</p>
+            )}
+            <p>{formData.updateTitle.length}/100 Zeichen</p>
+          </div>
+        </FormSection>
+        <FormSection>
+          <Subtitle text="Deine Neuigkeiten" color="orange" />
+          <div>
+            <textarea
+              id="updateContent"
+              name="updateContent"
+              type="textarea"
+              value={formData.updateContent}
+              onChange={handleFormDataChange}
+              aria-label="Deine Neuigkeiten"
+            />
+            {errors.updateContent && (
+              <p style={{ color: "red" }}>{errors.updateContent}</p>
+            )}
+          </div>
+        </FormSection>
+        <FormSection>
+          <div>
+            <Subtitle text="Absender" color="orange" />
+            <label htmlFor="isToggleChecked">Absender ändern</label>
+            <input
+              id="isToggleChecked"
+              type="checkbox"
+              checked={isToggleChecked}
+              onChange={handleToggleChange}
+            />
+          </div>
+          <div>
+            <p>
+              Hier hast du die Option, das Update unter einem anderen Namen zu
+              veröffentlichen.
+            </p>
+          </div>
+          <div>
+            <label htmlFor="author">Absender</label>
+            <input
+              id="author"
+              name="author"
+              type="text"
+              value={formData.author}
+              onChange={handleFormDataChange}
+              disabled={!isToggleChecked}
+            />
+            {errors.author && <p style={{ color: "red" }}>{errors.author}</p>}
+          </div>
+        </FormSection>
+        <ButtonContainer>
+          <Button bgColor="white" textColor="orange">
+            Abbrechen
+          </Button>
+          <Button type="Submit" bgColor="violet" textColor="white">
+            Entwurf speichern
+          </Button>
+          <Button bgColor="orange" textColor="white">
+            Update veröffentlichen
+          </Button>
+        </ButtonContainer>
       </form>
       {showSuccessMessage && (
         <p style={{ color: "green", marginTop: "10px" }}>
           Formular erfolgreich übermittelt
         </p>
       )}
-    </div>
+    </ModalContainer>
   );
 };
 

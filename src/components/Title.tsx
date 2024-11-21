@@ -12,6 +12,7 @@ const StyledTitle = styled.p(({ theme, color }) => ({
   fontWeight: theme.fontWeights.bold,
   lineHeight: "37.5px",
   letterSpacing: "0.5px",
+  textAlign: "left",
 }));
 
 const Title: React.FC<Props> = ({ text, color }) => {
