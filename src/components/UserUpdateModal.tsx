@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { UserUpdateForm } from "../utils/types";
+import Title from "./Title";
 
 type Props = {
   userName: string;
@@ -62,7 +63,7 @@ const UserUpdateModal: React.FC<Props> = ({ userName }) => {
 
   return (
     <div>
-      <p>Neues Update erstellen</p>
+      <Title text="Neues Update erstellen" color="violet" />
       <form onSubmit={handleSubmit}>
         <div>
           <p>Titel</p>
