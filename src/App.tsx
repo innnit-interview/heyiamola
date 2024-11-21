@@ -11,7 +11,6 @@ const ModalWrapper = styled.div(({ theme }) => ({
     minHeight: "100vh",
     backgroundColor: theme.colors.grayLight,
     zIndex: 0,
-    pointerEvents: "none",
   },
 }));
 

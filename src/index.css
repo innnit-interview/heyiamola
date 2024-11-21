@@ -1,3 +1,17 @@
+@font-face {
+  font-family: "Soehne Buch";
+  font-style: regular;
+  font-weight: 400;
+  src: url("./assets/fonts/soehne-buch.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "Soehne Kraeftig";
+  font-style: regular;
+  font-weight: 500;
+  src: url("./assets/fonts/soehne-kraftig.woff2") format("woff2");
+}
+
 *,
 *::before,
 *::after {
@@ -6,7 +20,8 @@
 }
 
 :root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-family: Soehne Buch, Soehne Kraeftig, Inter, system-ui, Avenir, Helvetica,
+    Arial, sans-serif;
   font-weight: 400;
 
   font-synthesis: none;

@@ -11,6 +11,10 @@ declare module "@emotion/react" {
       violet: string;
       white: string;
     };
+    fontFamily: {
+      primary: string;
+      secondary: string;
+    };
     fontSizes: {
       small: string;
       medium: string;

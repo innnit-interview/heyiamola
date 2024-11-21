@@ -7,6 +7,7 @@ import FormSection from "./FormSection";
 import ButtonContainer from "./ButtonContainer";
 import styled from "@emotion/styled";
 import THEME from "../theme/theme";
+import TextInput from "./TextInput";
 
 const ModalContainer = styled.div(({ theme }) => ({
   padding: "20px",
@@ -96,7 +97,15 @@ const UserUpdateModal: React.FC<Props> = ({ userName }) => {
       <form onSubmit={handleSubmit}>
         <FormSection>
           <Subtitle text="Titel" color="orange" />
-          <input
+          <TextInput
+            id="updateTitle"
+            name="updateTitle"
+            alue={formData.updateTitle}
+            onChange={handleFormDataChange}
+            maxLength={100}
+            aria-label="Titel"
+          />
+          {/* <input
             id="updateTitle"
             name="updateTitle"
             type="text"
@@ -104,7 +113,7 @@ const UserUpdateModal: React.FC<Props> = ({ userName }) => {
             onChange={handleFormDataChange}
             maxLength={100}
             aria-label="Titel"
-          />
+          /> */}
           <div>
             {errors.updateTitle && (
               <p style={{ color: "red" }}>{errors.updateTitle}</p>
@@ -145,18 +154,15 @@ const UserUpdateModal: React.FC<Props> = ({ userName }) => {
               veröffentlichen.
             </p>
           </div>
-          <div>
-            <label htmlFor="author">Absender</label>
-            <input
-              id="author"
-              name="author"
-              type="text"
-              value={formData.author}
-              onChange={handleFormDataChange}
-              disabled={!isToggleChecked}
-            />
-            {errors.author && <p style={{ color: "red" }}>{errors.author}</p>}
-          </div>
+          <TextInput
+            label="Absender"
+            id="author"
+            name="author"
+            value={formData.author}
+            onChange={handleFormDataChange}
+            disabled={!isToggleChecked}
+          />
+          {errors.author && <p style={{ color: "red" }}>{errors.author}</p>}
         </FormSection>
         <ButtonContainer>
           <Button bgColor="white" textColor="orange">

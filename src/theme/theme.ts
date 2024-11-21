@@ -21,6 +21,10 @@ const THEME: Theme = {
     bold: 500,
     regular: 400,
   },
+  fontFamily: {
+    primary: "'Soehne Buch', sans-serif",
+    secondary: "'Soehne Kraeftig', sans-serif",
+  },
   mediaQueries: {
     desktop: `@media (min-width: ${MIN_DESKTOP_WIDTH}px)`,
     mobile: `@media (max-width: ${MIN_TABLET_WIDTH - 1}px)`,
