@@ -7,12 +7,18 @@ type TextInputProps = React.InputHTMLAttributes<HTMLInputElement> & {
   inputProps: React.InputHTMLAttributes<HTMLInputElement>;
 };
 
-export const FieldWrapper = styled.div(() => ({
+const FieldWrapper = styled.div(() => ({
   width: "100%",
   display: "flex",
   flexDirection: "column",
-  alignItems: "flex-start",
   gap: "2px",
+}));
+
+const StyledLabel = styled.label(({ theme }) => ({
+  width: "100%",
+  color: theme.colors.grayMedium,
+  fontFamily: theme.fontFamily.secondary,
+  fontSize: theme.fontSizes.small,
 }));
 
 const StyledTextInput = styled.input(({ theme }) => ({
@@ -22,7 +28,7 @@ const StyledTextInput = styled.input(({ theme }) => ({
   lineHeight: "24px",
   height: "48px",
   padding: "11px 16px",
-  radius: "6px",
+  borderRadius: "6px",
   border: `1px solid ${theme.colors.grayDark}`,
   "&:active, &:focus": {
     backgroundColor: theme.colors.white,
@@ -34,9 +40,9 @@ const TextInput: React.FC<TextInputProps> = ({ label, name, inputProps }) => {
   return (
     <FieldWrapper>
       {label && (
-        <label htmlFor={name} style={{ marginBottom: "5px" }}>
+        <StyledLabel htmlFor={name} theme={THEME}>
           {label}
-        </label>
+        </StyledLabel>
       )}
       <StyledTextInput
         id={name}

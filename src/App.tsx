@@ -3,7 +3,7 @@ import styled from "@emotion/styled";
 import THEME from "./theme/theme";
 
 const ModalWrapper = styled.div(({ theme }) => ({
-  [theme.mediaQueries.desktop]: {
+  [theme.mediaQueries.tablet]: {
     display: "fixed",
     top: 0,
     left: 0,

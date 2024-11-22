@@ -17,7 +17,8 @@ const ModalContainer = styled.div(({ theme }) => ({
   flexDirection: "column",
   juutifyContent: "flex-start",
   gap: "26px",
-  [theme.mediaQueries.desktop]: {
+  fontFamily: theme.fontFamily.primary,
+  [theme.mediaQueries.tablet]: {
     width: "670px",
     height: "auto",
     position: "fixed",
@@ -30,6 +31,13 @@ const ModalContainer = styled.div(({ theme }) => ({
     zIndex: 1,
     borderRadius: "16px",
   },
+}));
+
+const StyledForm = styled.form(() => ({
+  width: "100%",
+  display: "flex",
+  flexDirection: "column",
+  gap: "26px",
 }));
 
 type Props = {
@@ -94,7 +102,7 @@ const UserUpdateModal: React.FC<Props> = ({ userName }) => {
   return (
     <ModalContainer theme={THEME}>
       <Title text="Neues Update erstellen" color="violet" />
-      <form onSubmit={handleSubmit}>
+      <StyledForm onSubmit={handleSubmit}>
         <FormSection>
           <Subtitle text="Titel" color="orange" />
           <TextInput
@@ -138,16 +146,18 @@ const UserUpdateModal: React.FC<Props> = ({ userName }) => {
           </div>
         </FormSection>
         <FormSection>
-          <div>
+          <>
             <Subtitle text="Absender" color="orange" />
-            <label htmlFor="isToggleChecked">Absender ändern</label>
-            <input
-              id="isToggleChecked"
-              type="checkbox"
-              checked={isToggleChecked}
-              onChange={handleToggleChange}
-            />
-          </div>
+            <>
+              <label htmlFor="isToggleChecked">Absender ändern</label>
+              <input
+                id="isToggleChecked"
+                type="checkbox"
+                checked={isToggleChecked}
+                onChange={handleToggleChange}
+              />
+            </>
+          </>
           <div>
             <p>
               Hier hast du die Option, das Update unter einem anderen Namen zu
@@ -175,7 +185,7 @@ const UserUpdateModal: React.FC<Props> = ({ userName }) => {
             Update veröffentlichen
           </Button>
         </ButtonContainer>
-      </form>
+      </StyledForm>
       {showSuccessMessage && (
         <p style={{ color: "green", marginTop: "10px" }}>
           Formular erfolgreich übermittelt

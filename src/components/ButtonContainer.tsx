@@ -5,9 +5,9 @@ type Props = {
 };
 
 const StyledContainer = styled.div(() => ({
+  width: "100%",
   display: "flex",
   justifyContent: "space-between",
-  marginTop: "26px",
 }));
 
 const ButtonContainer: React.FC<Props> = ({ children }) => {

@@ -9,6 +9,7 @@ type Props = {
 const StyledSubtitle = styled.p(({ theme, color }) => ({
   width: "100%",
   color: theme.colors[color],
+  fontFamily: theme.fontFamily.secondary,
   fontSize: theme.fontSizes.large,
   fontWeight: theme.fontWeights.bold,
   lineHeight: "30px",

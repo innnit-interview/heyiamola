@@ -7,7 +7,9 @@ type Props = {
 };
 
 const StyledTitle = styled.p(({ theme, color }) => ({
+  width: "100%",
   color: theme.colors[color],
+  fontFamily: theme.fontFamily.secondary,
   fontSize: theme.fontSizes.title,
   fontWeight: theme.fontWeights.bold,
   lineHeight: "37.5px",
