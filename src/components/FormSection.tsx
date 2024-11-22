@@ -1,7 +1,7 @@
 import styled from "@emotion/styled";
 
 type Props = {
-  chilred: React.ReactNode;
+  children: React.ReactNode;
 };
 
 const StyledFormSection = styled.div(() => ({

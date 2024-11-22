@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { UserUpdateForm } from "../utils/types";
-import { validateForm } from "../services/validateForm";
+import { validateForm } from "../utils/validateForm";
+
 import styled from "@emotion/styled";
 import THEME from "../theme/theme";
 
@@ -85,7 +86,7 @@ const UserUpdateModal: React.FC<Props> = ({ userName }) => {
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    if (validateForm(formData, isToggleChecked, setErrors)) {
+    if (validateForm(formData, setErrors)) {
       localStorage.setItem("formData", JSON.stringify(formData));
       setShowSuccessMessage(true);
       setTimeout(() => setShowSuccessMessage(false), 3_000);

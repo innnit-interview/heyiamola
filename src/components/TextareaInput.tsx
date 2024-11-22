@@ -1,4 +1,4 @@
-import { UserUpdateForm } from "../types";
+import { UserUpdateForm } from "../utils/types";
 import styled from "@emotion/styled";
 import THEME from "../theme/theme";
 import FeedbackMessage from "./FeedbackMessage";

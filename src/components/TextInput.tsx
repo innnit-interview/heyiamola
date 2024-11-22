@@ -1,6 +1,6 @@
 import styled from "@emotion/styled";
 import THEME from "../theme/theme";
-import { UserUpdateForm } from "../types";
+import { UserUpdateForm } from "../utils/types";
 import FeedbackMessage from "./FeedbackMessage";
 
 type TextInputProps = React.InputHTMLAttributes<HTMLInputElement> & {
@@ -80,7 +80,7 @@ const TextInput: React.FC<TextInputProps> = ({
         )}
         {maxLength && (
           <FeedbackMessage textAlign="right">
-            {value.length}/100 Zeichen
+            {value!.length}/100 Zeichen
           </FeedbackMessage>
         )}
       </InputFeedbackContainer>

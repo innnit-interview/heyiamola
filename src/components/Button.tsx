@@ -1,7 +1,7 @@
 import styled from "@emotion/styled";
 import THEME from "../theme/theme";
 
-type Props = {
+type Props = React.HTMLAttributes<HTMLButtonElement> & {
   bgColor: keyof typeof THEME.colors;
   textColor: keyof typeof THEME.colors;
   children: React.ReactNode;

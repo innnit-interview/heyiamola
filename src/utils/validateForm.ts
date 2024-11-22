@@ -1,8 +1,7 @@
-import { UserUpdateForm } from "../types";
+import { UserUpdateForm } from "./types";
 
 export const validateForm = (
   formData: UserUpdateForm,
-  isToggleChecked: boolean,
   setErrors: (errors: { [key in keyof UserUpdateForm]?: string }) => void
 ): boolean => {
   const newErrors: { [key in keyof UserUpdateForm]?: string } = {};
