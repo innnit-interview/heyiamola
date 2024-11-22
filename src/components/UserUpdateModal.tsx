@@ -1,16 +1,17 @@
 import { useState } from "react";
 import { UserUpdateForm } from "../utils/types";
 import { validateForm } from "../services/validateForm";
-import Title from "./Title";
-import Subtitle from "./Subtitle";
-import Button from "./Button";
-import FormSection from "./FormSection";
-import ButtonContainer from "./ButtonContainer";
 import styled from "@emotion/styled";
 import THEME from "../theme/theme";
-import TextInput from "./TextInput";
+
+import Button from "./Button";
+import ButtonContainer from "./ButtonContainer";
 import FeedbackMessage from "./FeedbackMessage";
+import FormSection from "./FormSection";
+import Subtitle from "./Subtitle";
+import TextInput from "./TextInput";
 import TextareaInput from "./TextareaInput";
+import Title from "./Title";
 import Toggle from "./Toggle";
 
 const ModalContainer = styled.div(({ theme }) => ({

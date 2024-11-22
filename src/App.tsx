@@ -1,6 +1,6 @@
-import UserUpdateModal from "./components/UserUpdateModal";
 import styled from "@emotion/styled";
 import THEME from "./theme/theme";
+import UserUpdateModal from "./components/UserUpdateModal";
 
 const ModalWrapper = styled.div(({ theme }) => ({
   [theme.mediaQueries.tablet]: {

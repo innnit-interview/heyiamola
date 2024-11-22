@@ -1,8 +1,8 @@
 import { UserUpdateForm } from "../types";
-import { FieldWrapper } from "./TextInput";
 import styled from "@emotion/styled";
 import THEME from "../theme/theme";
 import FeedbackMessage from "./FeedbackMessage";
+import { FieldWrapper } from "./TextInput";
 
 type TextareaInputProps = React.TextareaHTMLAttributes<HTMLTextAreaElement> & {
   name: string;
