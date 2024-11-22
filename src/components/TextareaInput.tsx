@@ -15,7 +15,7 @@ const StyledTextarea = styled.textarea(({ theme }) => ({
   height: "142px",
   fontFamily: theme.fontFamily.primary,
   fontSize: theme.fontSizes.medium,
-  color: theme.colors.grayMedium,
+  color: theme.colors.grayDark,
   lineHeight: "24px",
   padding: "11px 16px",
   borderRadius: "6px",
@@ -24,6 +24,9 @@ const StyledTextarea = styled.textarea(({ theme }) => ({
     backgroundColor: theme.colors.white,
     border: `1px solid ${theme.colors.violet}`,
     outline: 0,
+  },
+  "&::placeholder": {
+    color: theme.colors.grayMedium,
   },
 }));
 

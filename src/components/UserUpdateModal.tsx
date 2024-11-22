@@ -137,6 +137,7 @@ const UserUpdateModal: React.FC<Props> = ({ userName }) => {
             label="Absender"
             id="author"
             name="author"
+            defaultValue={userName}
             placeholder="Vorname Nachname"
             value={formData.author}
             onChange={handleFormDataChange}

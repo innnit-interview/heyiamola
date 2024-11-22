@@ -26,7 +26,7 @@ const StyledLabel = styled.label(({ theme }) => ({
 
 const StyledTextInput = styled.input(({ theme }) => ({
   width: "100%",
-  color: theme.colors.grayMedium,
+  color: theme.colors.grayDark,
   fontSize: theme.fontSizes.medium,
   lineHeight: "24px",
   height: "48px",
@@ -37,6 +37,9 @@ const StyledTextInput = styled.input(({ theme }) => ({
     backgroundColor: theme.colors.white,
     border: `1px solid ${theme.colors.violet}`,
     outline: 0,
+  },
+  "&::placeholder": {
+    color: theme.colors.grayMedium,
   },
 }));
 
