@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { UserUpdateForm } from "../utils/types";
+import { validateForm } from "../services/validateForm";
 import Title from "./Title";
 import Subtitle from "./Subtitle";
 import Button from "./Button";
@@ -80,29 +81,10 @@ const UserUpdateModal: React.FC<Props> = ({ userName }) => {
     setIsToggleChecked(e.target.checked);
   };
 
-  const validateForm = () => {
-    const newErrors: { [key: string]: string } = {};
-
-    if (!formData.updateTitle.trim()) {
-      newErrors.updateTitle = "Dieses Feld ist erforderlich.";
-    }
-
-    if (!formData.updateContent.trim()) {
-      newErrors.updateContent = "Dieses Feld ist erforderlich.";
-    }
-
-    if (isToggleChecked && !formData.author.trim()) {
-      newErrors.author = "Dieses Feld ist erforderlich.";
-    }
-
-    setErrors(newErrors);
-    return Object.keys(newErrors).length === 0;
-  };
-
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    if (validateForm()) {
+    if (validateForm(formData, isToggleChecked, setErrors)) {
       localStorage.setItem("formData", JSON.stringify(formData));
       setShowSuccessMessage(true);
       setTimeout(() => setShowSuccessMessage(false), 2000);
