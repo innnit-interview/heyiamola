@@ -4,10 +4,12 @@ import { MIN_DESKTOP_WIDTH, MIN_TABLET_WIDTH } from "../utils/consts";
 const THEME: Theme = {
   colors: {
     black: "#000000",
+    error: "#FF9494",
     grayDark: "#272729",
     grayLight: "#BABBC2",
     grayMedium: "#767676",
     orange: "#F7661E",
+    success: "#00A870",
     violet: "#9466F2",
     white: "#FFFFFF",
   },

@@ -8,6 +8,7 @@ import ButtonContainer from "./ButtonContainer";
 import styled from "@emotion/styled";
 import THEME from "../theme/theme";
 import TextInput from "./TextInput";
+import FeedbackMessage from "./FeedbackMessage";
 
 const ModalContainer = styled.div(({ theme }) => ({
   padding: "20px",
@@ -74,15 +75,15 @@ const UserUpdateModal: React.FC<Props> = ({ userName }) => {
     const newErrors: { [key: string]: string } = {};
 
     if (!formData.updateTitle.trim()) {
-      newErrors.updateTitle = "This field is required.";
+      newErrors.updateTitle = "Dieses Feld ist erforderlich.";
     }
 
     if (!formData.updateContent.trim()) {
-      newErrors.updateContent = "This field is required.";
+      newErrors.updateContent = "Dieses Feld ist erforderlich.";
     }
 
     if (isToggleChecked && !formData.author.trim()) {
-      newErrors.author = "This field is required.";
+      newErrors.author = "Dieses Feld ist erforderlich.";
     }
 
     setErrors(newErrors);
@@ -108,26 +109,12 @@ const UserUpdateModal: React.FC<Props> = ({ userName }) => {
           <TextInput
             id="updateTitle"
             name="updateTitle"
-            alue={formData.updateTitle}
+            value={formData.updateTitle}
             onChange={handleFormDataChange}
+            errors={errors}
             maxLength={100}
             aria-label="Titel"
           />
-          {/* <input
-            id="updateTitle"
-            name="updateTitle"
-            type="text"
-            value={formData.updateTitle}
-            onChange={handleFormDataChange}
-            maxLength={100}
-            aria-label="Titel"
-          /> */}
-          <div>
-            {errors.updateTitle && (
-              <p style={{ color: "red" }}>{errors.updateTitle}</p>
-            )}
-            <p>{formData.updateTitle.length}/100 Zeichen</p>
-          </div>
         </FormSection>
         <FormSection>
           <Subtitle text="Deine Neuigkeiten" color="orange" />
@@ -136,13 +123,12 @@ const UserUpdateModal: React.FC<Props> = ({ userName }) => {
               id="updateContent"
               name="updateContent"
               type="textarea"
+              placeholder="Bitte schreibe ein paar Worte zu deinem Update."
               value={formData.updateContent}
               onChange={handleFormDataChange}
+              errors={errors}
               aria-label="Deine Neuigkeiten"
             />
-            {errors.updateContent && (
-              <p style={{ color: "red" }}>{errors.updateContent}</p>
-            )}
           </div>
         </FormSection>
         <FormSection>
@@ -168,11 +154,12 @@ const UserUpdateModal: React.FC<Props> = ({ userName }) => {
             label="Absender"
             id="author"
             name="author"
+            placeholder="Vorname Nachname"
             value={formData.author}
             onChange={handleFormDataChange}
+            errors={errors}
             disabled={!isToggleChecked}
           />
-          {errors.author && <p style={{ color: "red" }}>{errors.author}</p>}
         </FormSection>
         <ButtonContainer>
           <Button bgColor="white" textColor="orange">
@@ -186,10 +173,17 @@ const UserUpdateModal: React.FC<Props> = ({ userName }) => {
           </Button>
         </ButtonContainer>
       </StyledForm>
-      {showSuccessMessage && (
-        <p style={{ color: "green", marginTop: "10px" }}>
+      {showSuccessMessage ? (
+        <FeedbackMessage
+          textAlign="center"
+          bold={true}
+          color="success"
+          size="medium"
+        >
           Formular erfolgreich übermittelt
-        </p>
+        </FeedbackMessage>
+      ) : (
+        <div style={{ height: "22px" }} />
       )}
     </ModalContainer>
   );
