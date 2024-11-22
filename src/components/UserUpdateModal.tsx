@@ -9,6 +9,7 @@ import styled from "@emotion/styled";
 import THEME from "../theme/theme";
 import TextInput from "./TextInput";
 import FeedbackMessage from "./FeedbackMessage";
+import TextareaInput from "./TextareaInput";
 
 const ModalContainer = styled.div(({ theme }) => ({
   padding: "20px",
@@ -118,18 +119,14 @@ const UserUpdateModal: React.FC<Props> = ({ userName }) => {
         </FormSection>
         <FormSection>
           <Subtitle text="Deine Neuigkeiten" color="orange" />
-          <div>
-            <textarea
-              id="updateContent"
-              name="updateContent"
-              type="textarea"
-              placeholder="Bitte schreibe ein paar Worte zu deinem Update."
-              value={formData.updateContent}
-              onChange={handleFormDataChange}
-              errors={errors}
-              aria-label="Deine Neuigkeiten"
-            />
-          </div>
+          <TextareaInput
+            name="updateContent"
+            placeholder="Bitte schreibe ein paar Worte zu deinem Update."
+            value={formData.updateContent}
+            onChange={handleFormDataChange}
+            errors={errors}
+            aria-label="Deine Neuigkeiten"
+          />
         </FormSection>
         <FormSection>
           <>

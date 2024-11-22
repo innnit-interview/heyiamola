@@ -10,7 +10,7 @@ type TextInputProps = React.InputHTMLAttributes<HTMLInputElement> & {
   inputProps: React.InputHTMLAttributes<HTMLInputElement>;
 };
 
-const FieldWrapper = styled.div(() => ({
+export const FieldWrapper = styled.div(() => ({
   width: "100%",
   display: "flex",
   flexDirection: "column",
