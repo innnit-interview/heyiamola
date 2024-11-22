@@ -3,7 +3,7 @@ import THEME from "../theme/theme";
 
 type Props = {
   text: string;
-  color: string;
+  color: keyof typeof THEME.colors;
 };
 
 const StyledSubtitle = styled.p(({ theme, color }) => ({
