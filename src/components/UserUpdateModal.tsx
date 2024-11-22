@@ -10,6 +10,7 @@ import THEME from "../theme/theme";
 import TextInput from "./TextInput";
 import FeedbackMessage from "./FeedbackMessage";
 import TextareaInput from "./TextareaInput";
+import Toggle from "./Toggle";
 
 const ModalContainer = styled.div(({ theme }) => ({
   padding: "20px",
@@ -40,6 +41,13 @@ const StyledForm = styled.form(() => ({
   display: "flex",
   flexDirection: "column",
   gap: "26px",
+}));
+
+const SubtitleWithToggle = styled.div(() => ({
+  width: "100%",
+  display: "grid",
+  gridTemplateColumns: "1fr auto",
+  gap: "8px",
 }));
 
 type Props = {
@@ -129,24 +137,19 @@ const UserUpdateModal: React.FC<Props> = ({ userName }) => {
           />
         </FormSection>
         <FormSection>
-          <>
+          <SubtitleWithToggle>
             <Subtitle text="Absender" color="orange" />
-            <>
-              <label htmlFor="isToggleChecked">Absender ändern</label>
-              <input
-                id="isToggleChecked"
-                type="checkbox"
-                checked={isToggleChecked}
-                onChange={handleToggleChange}
-              />
-            </>
-          </>
-          <div>
-            <p>
-              Hier hast du die Option, das Update unter einem anderen Namen zu
-              veröffentlichen.
-            </p>
-          </div>
+            <Toggle
+              name="isToggleChecked"
+              isChecked={isToggleChecked}
+              onChange={handleToggleChange}
+              labelText="Absender ändern"
+            />
+          </SubtitleWithToggle>
+          <p style={{ width: "100%" }}>
+            Hier hast du die Option, das Update unter einem anderen Namen zu
+            veröffentlichen.
+          </p>
           <TextInput
             label="Absender"
             id="author"
