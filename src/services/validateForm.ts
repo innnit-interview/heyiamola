@@ -15,10 +15,10 @@ export const validateForm = (
     newErrors.updateContent = "Dieses Feld ist erforderlich.";
   }
 
-  if (isToggleChecked && !formData.author.trim()) {
+  if (!formData.author.trim()) {
     newErrors.author = "Dieses Feld ist erforderlich.";
   }
 
   setErrors(newErrors);
-  return Object.keys(newErrors).length === 0;
+  return Object.keys(newErrors).length === 0; // returns true if the form is valid
 };

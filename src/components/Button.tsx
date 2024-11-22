@@ -12,7 +12,7 @@ const StyledButton = styled.button(({ theme, bgColor, textColor }) => ({
   justifyContent: "center",
   alignItems: "center",
   height: "35px",
-  padding: "12px",
+  padding: "10px",
   borderRadius: "100px",
   backgroundColor: theme.colors[bgColor],
   border: `1px solid ${

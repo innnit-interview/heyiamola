@@ -88,7 +88,7 @@ const UserUpdateModal: React.FC<Props> = ({ userName }) => {
     if (validateForm(formData, isToggleChecked, setErrors)) {
       localStorage.setItem("formData", JSON.stringify(formData));
       setShowSuccessMessage(true);
-      setTimeout(() => setShowSuccessMessage(false), 2000);
+      setTimeout(() => setShowSuccessMessage(false), 3_000);
     }
   };
 

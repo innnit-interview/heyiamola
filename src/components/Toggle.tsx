@@ -44,7 +44,7 @@ const StyledCheckbox = styled.input(({ theme }) => ({
   },
 }));
 
-const StyledLabel = styled.div(({ theme }) => ({
+const StyledLabel = styled.label(({ theme }) => ({
   fontSize: theme.fontSizes.small,
   color: theme.colors.black,
 }));

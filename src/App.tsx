@@ -17,7 +17,7 @@ const ModalWrapper = styled.div(({ theme }) => ({
 function App() {
   return (
     <ModalWrapper theme={THEME}>
-      {/* Please note that the username is hardcoded in this example. In a real-world application, we would fetch the user data from an API or retrieve it from UserContext (useContext).*/}
+      {/* The username is hardcoded in this example. In a real-world application, we would fetch the user data from an API or retrieve it from UserContext (useContext).*/}
       <UserUpdateModal userName="Erika Musterfrau" />
     </ModalWrapper>
   );
