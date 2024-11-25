@@ -2,7 +2,7 @@ import { useState } from "react";
 import { UserUpdateForm } from "../utils/types";
 import { validateForm } from "../utils/validateForm";
 
-import styled from "@emotion/styled";
+import styled, { CSSObject } from "@emotion/styled";
 import THEME from "../theme/theme";
 
 import Button from "./Button";
@@ -39,7 +39,7 @@ const ModalContainer = styled.div(({ theme }) => ({
   },
 }));
 
-const StyledForm = styled.form(() => ({
+const StyledForm = styled.form((): CSSObject => ({
   width: "100%",
   display: "flex",
   flexDirection: "column",
@@ -150,7 +150,7 @@ const UserUpdateModal: React.FC<Props> = ({ userName }) => {
           <Button bgColor="white" textColor="orange">
             Abbrechen
           </Button>
-          <Button type="Submit" bgColor="violet" textColor="white">
+          <Button type="submit" bgColor="violet" textColor="white">
             Entwurf speichern
           </Button>
           <Button bgColor="orange" textColor="white">

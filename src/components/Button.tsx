@@ -1,13 +1,17 @@
 import styled from "@emotion/styled";
 import THEME from "../theme/theme";
 
-type Props = React.HTMLAttributes<HTMLButtonElement> & {
+type ThemeColors = keyof typeof THEME.colors;
+type Props = React.ButtonHTMLAttributes<HTMLButtonElement> & {
   bgColor: keyof typeof THEME.colors;
   textColor: keyof typeof THEME.colors;
   children: React.ReactNode;
 };
 
-const StyledButton = styled.button(({ theme, bgColor, textColor }) => ({
+const StyledButton = styled.button<{
+  bgColor: ThemeColors;
+  textColor: ThemeColors;
+}>(({ theme, bgColor, textColor }) => ({
   display: "flex",
   justifyContent: "center",
   alignItems: "center",
@@ -30,9 +34,9 @@ const StyledButton = styled.button(({ theme, bgColor, textColor }) => ({
   },
 }));
 
-const Button: React.FC<Props> = ({ bgColor, textColor, children }) => {
+const Button: React.FC<Props> = ({ bgColor, textColor, children, ...rest }) => {
   return (
-    <StyledButton bgColor={bgColor} textColor={textColor} theme={THEME}>
+    <StyledButton bgColor={bgColor} textColor={textColor} theme={THEME} {...rest}>
       {children}
     </StyledButton>
   );

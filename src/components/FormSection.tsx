@@ -1,10 +1,10 @@
-import styled from "@emotion/styled";
+import styled, { CSSObject } from "@emotion/styled";
 
 type Props = {
   children: React.ReactNode;
 };
 
-const StyledFormSection = styled.div(() => ({
+const StyledFormSection = styled.div((): CSSObject => ({
   width: "100%",
   display: "flex",
   flexDirection: "column",

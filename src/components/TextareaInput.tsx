@@ -7,7 +7,6 @@ import { FieldWrapper } from "./TextInput";
 type TextareaInputProps = React.TextareaHTMLAttributes<HTMLTextAreaElement> & {
   name: string;
   errors: { [key in keyof UserUpdateForm]?: string };
-  textareaProps: React.TextareaHTMLAttributes<HTMLTextAreaElement>;
 };
 
 const StyledTextarea = styled.textarea(({ theme }) => ({
@@ -40,13 +39,12 @@ const TextareaInput: React.FC<TextareaInputProps> = ({
       <StyledTextarea
         id={name}
         name={name}
-        type="textarea"
         {...textareaProps}
         theme={THEME}
       />
-      {errors[name] ? (
+      {errors[name as keyof UserUpdateForm] ? (
         <FeedbackMessage textAlign="left" color="error">
-          {errors[name]}
+          {errors[name as keyof UserUpdateForm]}
         </FeedbackMessage>
       ) : (
         <div style={{ height: "15px" }} />

@@ -1,16 +1,15 @@
-import styled from "@emotion/styled";
+import styled, { CSSObject } from "@emotion/styled";
 import THEME from "../theme/theme";
 import { UserUpdateForm } from "../utils/types";
 import FeedbackMessage from "./FeedbackMessage";
 
 type TextInputProps = React.InputHTMLAttributes<HTMLInputElement> & {
-  label?: string;
   name: string;
   errors: { [key in keyof UserUpdateForm]?: string };
-  inputProps: React.InputHTMLAttributes<HTMLInputElement>;
+  label?: string;
 };
 
-export const FieldWrapper = styled.div(() => ({
+export const FieldWrapper = styled.div((): CSSObject => ({
   width: "100%",
   display: "flex",
   flexDirection: "column",
@@ -73,14 +72,14 @@ const TextInput: React.FC<TextInputProps> = ({
         theme={THEME}
       />
       <InputFeedbackContainer>
-        {errors[name] && (
+        {errors[name as keyof UserUpdateForm] && (
           <FeedbackMessage textAlign="left" color="error">
-            {errors[name]}
+            {errors[name as keyof UserUpdateForm]}
           </FeedbackMessage>
         )}
         {maxLength && (
-          <FeedbackMessage textAlign="right">
-            {value!.length}/100 Zeichen
+          <FeedbackMessage color="grayMedium" textAlign="right">
+            {Array.isArray(value) && value?.length}/100 Zeichen
           </FeedbackMessage>
         )}
       </InputFeedbackContainer>

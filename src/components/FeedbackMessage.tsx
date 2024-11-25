@@ -14,7 +14,7 @@ const FeedbackMessageContainer = styled.div<Props>(
     width: "100%",
     color: theme.colors[color],
     textAlign: textAlign,
-    fontSize: theme.fontSizes[size],
+    fontSize: theme.fontSizes[size as unknown as "small" | "medium" | "large" | "title"],
     fontWeight: bold ? theme.fontWeights.bold : theme.fontWeights.regular,
   })
 );
